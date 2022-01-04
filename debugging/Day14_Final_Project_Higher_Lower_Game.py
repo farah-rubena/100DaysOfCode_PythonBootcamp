@@ -46,7 +46,9 @@ while game_should_continue:
     # generate random account from game data
     account_a = account_b
     account_b = get_random_account()
-    if account_a == account_b:
+
+    # to make sure both accounts are nit equal use while loop. It will keep checking until both the accounts are not equal
+    while account_a == account_b:
         account_b = get_random_account()
 
     print(f"Compare A: {format_data(account_a)}")
@@ -61,11 +63,15 @@ while game_should_continue:
     b_follower_count = account_b["follower_count"]
     is_correct = check_answer(user_guess, a_follower_count, b_follower_count)
 
+    # Clear screen
+    system("cls")
+
     # give user feedback
     # keep track of score
     if is_correct:
         score += 1
         print(f"You're right. Your current score is {score}")
+
     else:
         game_should_continue = False
         print(
