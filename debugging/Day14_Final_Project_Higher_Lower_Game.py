@@ -23,7 +23,7 @@ def format_data(account):
     return f"{name}, a {description}, from {country}"
 
 
-# takess user guess and follower count of a and b and checks if the user got it right
+# takes user guess and follower count of a and b and checks if the user got it right
 def check_answer(user_guess, a_follower_count, b_follower_count):
 
     if a_follower_count > b_follower_count:
@@ -39,9 +39,12 @@ score = 0
 
 game_should_continue = True
 
+# if the user is correct make sure account_b becomes account_a
+account_b = get_random_account()
+
 while game_should_continue:
     # generate random account from game data
-    account_a = get_random_account()
+    account_a = account_b
     account_b = get_random_account()
     if account_a == account_b:
         account_b = get_random_account()
